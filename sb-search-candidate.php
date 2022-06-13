@@ -33,7 +33,7 @@ function sb_defer_scripts( $tag, $handle, $src ) {
       
     );  
     if ( in_array( $handle, $defer ) ) {
-       return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
+       return '<script src="' . $src . '" defer type="text/javascript"></script>' . "\n";
     }
       
       return $tag;

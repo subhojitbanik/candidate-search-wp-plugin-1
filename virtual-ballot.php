@@ -129,7 +129,11 @@ function virtual_ballot_fn()
                             <?php } ?>
                             <div class="card-body">
                                 <div class="circular--portrait">
-                                    <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                    <?php if ($fd[23]) { ?>
+                                        <img src="<?php echo $fd[25]; ?>" />
+                                    <?php } else {
+                                        echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                    } ?>
                                 </div>
                                 <h3 class="card-title"><?php if ($fd[15]) {
                                                             echo $fd[15];
@@ -154,7 +158,9 @@ function virtual_ballot_fn()
                                         <h4 class="card-title">2022</h4>
                                     </div>
                                 </div>
-                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                <?php if ($fd[23]) { ?>
+                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -178,7 +184,11 @@ function virtual_ballot_fn()
                             <?php } ?>
                             <div class="card-body">
                                 <div class="circular--portrait">
-                                    <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                    <?php if ($fd[23]) { ?>
+                                        <img src="<?php echo $fd[25]; ?>" />
+                                    <?php } else {
+                                        echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                    } ?>
                                 </div>
                                 <h3 class="card-title"><?php if ($fd[15]) {
                                                             echo $fd[15];
@@ -201,7 +211,9 @@ function virtual_ballot_fn()
                                         <h4 class="card-title">2022</h4>
                                     </div>
                                 </div>
-                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                <?php if ($fd[23]) { ?>
+                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -226,7 +238,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -249,7 +265,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -275,7 +293,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -298,7 +320,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -324,7 +348,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -349,7 +377,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -375,7 +405,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -400,7 +434,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -426,7 +462,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -451,7 +491,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -477,7 +519,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -502,7 +548,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -528,7 +576,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -553,7 +605,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -579,7 +633,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -604,7 +662,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -630,7 +690,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -655,7 +719,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -681,7 +747,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -706,7 +776,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -732,7 +804,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -757,7 +833,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -783,7 +861,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -808,7 +890,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -834,7 +918,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -859,7 +947,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -885,7 +975,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -910,7 +1004,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -936,7 +1032,11 @@ function virtual_ballot_fn()
                                 <?php } ?>
                                 <div class="card-body">
                                     <div class="circular--portrait">
-                                        <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                        <?php if ($fd[23]) { ?>
+                                            <img src="<?php echo $fd[25]; ?>" />
+                                        <?php } else {
+                                            echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                        } ?>
                                     </div>
                                     <h3 class="card-title"><?php if ($fd[15]) {
                                                                 echo $fd[15];
@@ -961,7 +1061,9 @@ function virtual_ballot_fn()
                                             <h4 class="card-title">2022</h4>
                                         </div>
                                     </div>
-                                    <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php if ($fd[23]) { ?>
+                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>

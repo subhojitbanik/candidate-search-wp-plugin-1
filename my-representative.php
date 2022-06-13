@@ -35,11 +35,11 @@ function search_data($array, $key, $value)
     return $results;
 }
 
- $data = search_data($lists_val, 26, 'active');
- 
+$data = search_data($lists_val, 26, 'active');
+
 function show_ofc_cat_fn()
 {
-    global $data;   
+    global $data;
 
     $uss_input = 'US Senator';
     $sos_input = 'Secretary of State';
@@ -48,7 +48,7 @@ function show_ofc_cat_fn()
     // echo '<pre>';
     // print_r($sos);
     // echo '</pre>';
-    
+
     foreach ($uss as $us_val) {
         $arr_uss[] = $us_val[13];
     }
@@ -96,15 +96,16 @@ function show_ofc_cat_fn()
     $cb_jcc = search_data($cb, 13, 'Judge, Circuit Court');
     $cb_jsmc = search_data($cb, 13, 'Judge, Small Claims Court');
     $cb_jsc = search_data($cb, 13, 'Judge, Superior Court');
-    $arr[] = array_merge((array)$arr_uss,
+    $arr[] = array_merge(
+        (array)$arr_uss,
         (array)$arr_sos,
         (array)$arrcd,
         (array)$arrsd,
         (array)$arrhd,
         (array)$arrcb
     );
-    
-    ?>
+
+?>
     <div class="container">
         <div class="row my-3">
             <div class="col-md-6 col-sm-12">
@@ -130,14 +131,18 @@ function show_ofc_cat_fn()
                 <!-- US Senator starts -->
                 <?php if (in_array('US Senator', (array)$arr_uss)) { ?>
                     <div class="row show_hide <?php print(str_replace(' ', '_', $arr_uss[0])); ?>">
-                        <?php  echo '<h2 style="text-align:left;"> ' . $arr_uss[0] . ' </h2> <div class="container"><hr></div>';
+                        <?php echo '<h2 style="text-align:left;"> ' . $arr_uss[0] . ' </h2> <div class="container"><hr></div>';
                         foreach ($uss as $fd) { ?>
                             <div class="col-md-4">
                                 <div class="card mb-3">
                                     <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
                                     <div class="card-body">
                                         <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                            <?php if ($fd[23]) { ?>
+                                                <img src="<?php echo $fd[25]; ?>" />
+                                            <?php } else {
+                                                echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                            } ?>
                                         </div>
                                         <h3 class="card-title"><?php if ($fd[15]) {
                                                                     echo $fd[15];
@@ -161,25 +166,33 @@ function show_ofc_cat_fn()
                                                 <h4 class="card-title">2022</h4>
                                             </div>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                        <?php if ($fd[23]) { ?>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
                         <?php } ?>
                     </div>
-                <?php }?>
+                <?php } ?>
                 <!-- US Senator ends -->
                 <!-- Secretary of State starts -->
                 <?php if (in_array('Secretary of State', (array)$arr_sos)) { ?>
                     <div class="row show_hide <?php print(str_replace(' ', '_', $arr_sos[0])); ?>">
-                        <?php  echo '<h2 style="text-align:left;"> ' . $arr_sos[0] . ' </h2> <div class="container"><hr></div>';
+                        <?php echo '<h2 style="text-align:left;"> ' . $arr_sos[0] . ' </h2> <div class="container"><hr></div>';
                         foreach ($sos as $fd) { ?>
                             <div class="col-md-4">
                                 <div class="card mb-3">
                                     <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
                                     <div class="card-body">
                                         <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                            <?php if ($fd[23]) { ?>
+                                                <img src="<?php echo $fd[25]; ?>" />
+                                            <?php } else {
+                                                echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                            } ?>
                                         </div>
                                         <h3 class="card-title"><?php if ($fd[15]) {
                                                                     echo $fd[15];
@@ -203,7 +216,11 @@ function show_ofc_cat_fn()
                                                 <h4 class="card-title">2022</h4>
                                             </div>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                        <?php if ($fd[23]) { ?>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -221,14 +238,18 @@ function show_ofc_cat_fn()
                                     <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
                                     <div class="card-body">
                                         <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                            <?php if ($fd[23]) { ?>
+                                                <img src="<?php echo $fd[25]; ?>" />
+                                            <?php } else {
+                                                echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                            } ?>
                                         </div>
                                         <h3 class="card-title"><?php if ($fd[15]) {
                                                                     echo $fd[15];
                                                                 } ?></h3>
                                         <?php
                                         echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        
+
                                         <hr class="hrline">
                                         <div class="row">
                                             <div class="col-sm">
@@ -246,7 +267,9 @@ function show_ofc_cat_fn()
                                                 <h4 class="card-title">2022</h4>
                                             </div>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                        <?php if ($fd[23]) { ?>
+                                            <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -256,49 +279,55 @@ function show_ofc_cat_fn()
                 <!-- US Representative ends -->
                 <!-- State Senator starts -->
                 <?php if (in_array('State Senator', (array)$arrsd)) { ?>
-                <div class="row show_hide <?php print(str_replace(' ', '_', $arrsd[0])); ?>">
-                    <?php if (isset($_GET["sd"])) {
-                        echo '<h2 style="text-align:left;"> ' . $arrsd[0] . '</h2> <div class="container"><hr></div>';
-                        foreach ($sd as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <div class="container">
-                                        <hr class="hrline">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                    <div class="row show_hide <?php print(str_replace(' ', '_', $arrsd[0])); ?>">
+                        <?php if (isset($_GET["sd"])) {
+                            echo '<h2 style="text-align:left;"> ' . $arrsd[0] . '</h2> <div class="container"><hr></div>';
+                            foreach ($sd as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <div class="container">
+                                                <hr class="hrline">
                                             </div>
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
+                                            </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                    <?php }
-                    } ?>
-                </div>
-                <?php }?>
+                        <?php }
+                        } ?>
+                    </div>
+                <?php } ?>
                 <!-- State Senator ends -->
                 <!-- house district starts -->
                 <div class="row show_hide <?php print(str_replace(' ', '_', $arrhd[0])); ?>">
@@ -310,7 +339,11 @@ function show_ofc_cat_fn()
                                     <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
                                     <div class="card-body">
                                         <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                            <?php if ($fd[23]) { ?>
+                                                <img src="<?php echo $fd[25]; ?>" />
+                                            <?php } else {
+                                                echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                            } ?>
                                         </div>
                                         <h3 class="card-title"><?php if ($fd[15]) {
                                                                     echo $fd[15];
@@ -334,7 +367,9 @@ function show_ofc_cat_fn()
                                                 <h4 class="card-title">2022</h4>
                                             </div>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                        <?php if ($fd[23]) { ?>
+                                            <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -344,7 +379,7 @@ function show_ofc_cat_fn()
                 <!-- house district ends -->
                 <?php if (in_array('Prosecuting Attorney', (array)$arrcb)) { ?>
                     <div class="row show_hide <?php print(str_replace(' ', '_', $arrcb[0])); ?>">
-                        <?php echo '<h2 style="text-align:left;"> Prosecuting Attorney </h2> <div class="container"><hr></div>';?>
+                        <?php echo '<h2 style="text-align:left;"> Prosecuting Attorney </h2> <div class="container"><hr></div>'; ?>
                         <div class="row pros_attorn">
                             <?php foreach ($cb_pa as $fd) { ?>
                                 <div class="col-md-4">
@@ -352,7 +387,11 @@ function show_ofc_cat_fn()
                                         <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
                                         <div class="card-body">
                                             <div class="circular--portrait">
-                                                <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
                                             <h3 class="card-title"><?php if ($fd[15]) {
                                                                         echo $fd[15];
@@ -376,7 +415,9 @@ function show_ofc_cat_fn()
                                                     <h4 class="card-title">2022</h4>
                                                 </div>
                                             </div>
-                                            <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -388,43 +429,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries County Assessor starts -->
                 <?php if (in_array('County Assessor', (array)$arrcb)) { ?>
                     <div class="row show_hide County_Assessor my-3">
-                        <?php echo '<h2 style="text-align:left;"> County Assessor </h2> <div class="container"><hr></div>';?>
+                        <?php echo '<h2 style="text-align:left;"> County Assessor </h2> <div class="container"><hr></div>'; ?>
                         <div class="row cb_ca">
-                        <?php foreach ($cb_ca as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_ca as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -432,43 +479,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries County Sheriff starts -->
                 <?php if (in_array('County Sheriff', (array)$arrcb)) { ?>
                     <div class="row show_hide County_Sheriff my-3">
-                        <?php echo '<h2 style="text-align:left;"> County Sheriff </h2> <div class="container"><hr></div>';?>
+                        <?php echo '<h2 style="text-align:left;"> County Sheriff </h2> <div class="container"><hr></div>'; ?>
                         <div class="row cb_cs">
-                        <?php foreach ($cb_cs as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_cs as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -476,43 +529,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries County Auditor starts -->
                 <?php if (in_array('County Auditor', (array)$arrcb)) { ?>
                     <div class="row show_hide County_Auditor my-3">
-                        <?php echo '<h2 style="text-align:left;"> County Auditor </h2> <div class="container"><hr></div>';?>
+                        <?php echo '<h2 style="text-align:left;"> County Auditor </h2> <div class="container"><hr></div>'; ?>
                         <div class="row cb_cau">
-                        <?php foreach ($cb_cau as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_cau as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -520,43 +579,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries County Commissioner starts -->
                 <?php if (in_array('County Commissioner', (array)$arrcb)) { ?>
                     <div class="row show_hide County_Commissioner my-3">
-                        <?php echo '<h2 style="text-align:left;"> County Commissioner </h2> <div class="container"><hr></div>';?>
+                        <?php echo '<h2 style="text-align:left;"> County Commissioner </h2> <div class="container"><hr></div>'; ?>
                         <div class="row cb_cc">
-                        <?php foreach ($cb_cc as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_cc as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -564,43 +629,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries County Surveyor starts -->
                 <?php if (in_array('County Surveyor', (array)$arrcb)) { ?>
                     <div class="row show_hide County_Surveyor my-3">
-                        <?php echo '<h2 style="text-align:left;"> County Surveyor </h2> <div class="container"><hr></div>';?>
+                        <?php echo '<h2 style="text-align:left;"> County Surveyor </h2> <div class="container"><hr></div>'; ?>
                         <div class="row cb_csur">
-                        <?php foreach ($cb_csur as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_csur as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -608,43 +679,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries County Treasurer starts -->
                 <?php if (in_array('County Treasurer', (array)$arrcb)) { ?>
                     <div class="row show_hide County_Treasurer my-3">
-                        <?php echo '<h2 style="text-align:left;"> County Treasurer </h2> <div class="container"><hr></div>'?>;
+                        <?php echo '<h2 style="text-align:left;"> County Treasurer </h2> <div class="container"><hr></div>' ?>;
                         <div class="row cb_ct">
-                        <?php foreach ($cb_ct as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_ct as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -652,43 +729,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries County Coroner starts -->
                 <?php if (in_array('County Coroner', (array)$arrcb)) { ?>
                     <div class="row show_hide County_Coroner my-3">
-                        <?php echo '<h2 style="text-align:left;"> County Coroner </h2> <div class="container"><hr></div>';?>
+                        <?php echo '<h2 style="text-align:left;"> County Coroner </h2> <div class="container"><hr></div>'; ?>
                         <div class="row cb_cco">
-                        <?php foreach ($cb_cco as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_cco as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -696,43 +779,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries County Recorder starts -->
                 <?php if (in_array('County Recorder', (array)$arrcb)) { ?>
                     <div class="row show_hide County_Recorder my-3">
-                        <?php echo '<h2 style="text-align:left;"> County Recorder </h2> <div class="container"><hr></div>';?>
+                        <?php echo '<h2 style="text-align:left;"> County Recorder </h2> <div class="container"><hr></div>'; ?>
                         <div class="row cb_cr">
-                        <?php foreach ($cb_cr as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_cr as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -740,43 +829,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries Judge, Circuit Court starts -->
                 <?php if (in_array('Judge, Circuit Court', (array)$arrcb)) { ?>
                     <div class="row show_hide Judge__Circuit_Court my-3">
-                        <?php echo '<h2 style="text-align:left;"> Judge, Circuit Court </h2> <hr>';?>
+                        <?php echo '<h2 style="text-align:left;"> Judge, Circuit Court </h2> <hr>'; ?>
                         <div class="row cb_jcc">
-                        <?php foreach ($cb_jcc as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_jcc as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -784,43 +879,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries Judge, Small Claims Court starts -->
                 <?php if (in_array('Judge, Small Claims Court', (array)$arrcb)) { ?>
                     <div class="row show_hide Judge__Small_Claims_Court">
-                        <?php echo '<h2 style="text-align:left;"> Judge, Small Claims Court </h2> <hr>';?>
+                        <?php echo '<h2 style="text-align:left;"> Judge, Small Claims Court </h2> <hr>'; ?>
                         <div class="cb_jsmc row">
-                        <?php foreach ($cb_jsmc as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_jsmc as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -828,43 +929,49 @@ function show_ofc_cat_fn()
                 <!-- County Boundaries Judge, Superior Court starts -->
                 <?php if (in_array('Judge, Superior Court', (array)$arrcb)) { ?>
                     <div class="row show_hide Judge__Superior_Court">
-                        <?php echo '<h2 style="text-align:left;"> Judge, Superior Court </h2> <hr>';?>
+                        <?php echo '<h2 style="text-align:left;"> Judge, Superior Court </h2> <hr>'; ?>
                         <div class="cb_jsc row">
-                        <?php foreach ($cb_jsc as $fd) { ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3">
-                                    <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
-                                    <div class="card-body">
-                                        <div class="circular--portrait">
-                                            <img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />
-                                        </div>
-                                        <h3 class="card-title"><?php if ($fd[15]) {
-                                                                    echo $fd[15];
-                                                                } ?></h3>
-                                        <?php
-                                        echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
-                                        <hr class="hrline">
-                                        <div class="row">
-                                            <div class="col-sm">
-                                                <p class="card-text">Ballot Order </p>
-                                                <h4 class="card-title"><?php echo $fd[14]; ?></h4>
-                                                <p class="card-text">Office</p>
-                                                <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
-                                                                                            ?></h4> -->
-                                                <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                            <?php foreach ($cb_jsc as $fd) { ?>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-header1 <?php echo $fd[16]; ?>"><?php echo $fd[16]; ?></div>
+                                        <div class="card-body">
+                                            <div class="circular--portrait">
+                                                <?php if ($fd[23]) { ?>
+                                                    <img src="<?php echo $fd[25]; ?>" />
+                                                <?php } else {
+                                                    echo '<img src="https://dev.indianacitizen.org/wp-content/uploads/2022/04/not_avail.png" />';
+                                                } ?>
                                             </div>
-                                            <div class="col-sm">
-                                                <p class="card-text">Terms End</p>
-                                                <h4 class="card-title">2022</h4>
-                                                <p class="card-text">Last Elected</p>
-                                                <h4 class="card-title">2022</h4>
+                                            <h3 class="card-title"><?php if ($fd[15]) {
+                                                                        echo $fd[15];
+                                                                    } ?></h3>
+                                            <?php
+                                            echo $pd_follow_sc = do_shortcode('[pd_follow content_id="' . $fd[23] . '" content_type="1" user_id="6"]'); ?>
+                                            <hr class="hrline">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <p class="card-text">Ballot Order </p>
+                                                    <h4 class="card-title"><?php echo $fd[14]; ?></h4>
+                                                    <p class="card-text">Office</p>
+                                                    <!-- <h4 class="card-title">candidateId : <?php // echo $fd['0']; 
+                                                                                                ?></h4> -->
+                                                    <p class="card-title1"> <?php echo $fd['4']; ?></p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <p class="card-text">Terms End</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                    <p class="card-text">Last Elected</p>
+                                                    <h4 class="card-title">2022</h4>
+                                                </div>
                                             </div>
+                                            <?php if ($fd[23]) { ?>
+                                                <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
+                                            <?php } ?>
                                         </div>
-                                        <a class=" btn btn-warning" href="/my-representative/candidate-summary/?can_id=<?php echo $fd['23']; ?>">Detail Bio</a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -874,5 +981,5 @@ function show_ofc_cat_fn()
         </section>
     </div>
 
-<?php }                                  
-add_shortcode( 'uss', 'show_ofc_cat_fn' );
+<?php }
+add_shortcode('uss', 'show_ofc_cat_fn');
